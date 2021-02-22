@@ -12,6 +12,8 @@ class Tombolone(tk.Frame):
         self.frameMenu.grid()
 
     def colors(self):
+        # Setto le variabili globali dei colori 
+        # per gli sfondi e per le scritte
         self.menu_sfondo_bg_color="orange"
         self.gioco_sfondo_bg_color="red"
         self.impostazioni_sfondo_bg_color="#0040ff"
@@ -54,12 +56,8 @@ class Tombolone(tk.Frame):
         self.btnEsci.grid(row=7, column=1)
 
         spazioTraScelteEBottom=tk.Label(self.frameMenu, bg=self.menu_sfondo_bg_color, font=("Helvetica", 30)).grid(row=8, column=1)
-
-
-        #self.frameMenu.grid()
-
-
-
+        
+        
 
         #GIOCO *******************************************************************************************************
 
@@ -81,7 +79,7 @@ class Tombolone(tk.Frame):
 
         tk.Label(self.frameGioco, text="", bg=self.gioco_sfondo_bg_color, height=2).grid(row=4, column=0)
 
-        # PER IL TABELLONE
+        # Tabellone
         frameTabellone=tk.Frame(self.frameGioco, bg=self.gioco_sfondo_bg_color)
         self.arrTabellone=[]
         row=0
@@ -240,11 +238,11 @@ class Tombolone(tk.Frame):
         tk.Label(self.frameGioco, text="", bg=self.gioco_sfondo_bg_color, width=14, height=6).grid(row=11, column=6)
 
         self.frameSchedine.grid(row=6, column=1, columnspan=4, rowspan=3)
-        #self.frameGioco.grid()
 
 
 
         #IMPOSTAZIONI *************************************************************************************************
+        
         self.frameImpostazioni=tk.Frame(self, bg=self.impostazioni_sfondo_bg_color)
 
         margineAltoSx = tk.Label(self.frameImpostazioni, width="20", bg=self.impostazioni_sfondo_bg_color).grid(row=0, column=0)
@@ -297,11 +295,13 @@ class Tombolone(tk.Frame):
 
 
     def estrai(self):
+        #Estrae i numeri casuali della partita
         randN=random.randint(1, 91)
         if self.nEstratti == []:
             self.lblNEstratto2.configure(text=randN)
             self.nEstratti.append(randN)
-
+            
+            # Tabellone
             for i in range(len(self.arrTabellone)):
                 if self.arrTabellone[i][1] == randN:
                     self.arrTabellone[i][0].configure(bg=self.gioco_widget_bg_color)
@@ -311,15 +311,15 @@ class Tombolone(tk.Frame):
         else:
             self.lblNEstratto2.configure(text=randN)
             self.nEstratti.append(randN)
-
+            
+            # Tabellone
             for i in range(len(self.arrTabellone)):
                 if self.arrTabellone[i][1] == randN:
                     self.arrTabellone[i][0].configure(bg=self.gioco_widget_bg_color)
             print(randN)
 
-
-
-    def globals(self): #############################################################################################
+    def globals(self):
+        # Setto le variabili "globali"
         self.nEstratti=[]
         self.currentPlayer=1
         self.nGiocatori=tk.IntVar(self, 2)
@@ -327,6 +327,8 @@ class Tombolone(tk.Frame):
         self.tema=tk.StringVar(self, "Normale")
 
     def Menu(self):
+        # Verifica quale tema si ha selezionato\
+        # e porta in primo piano il Menu 
         self.frameGioco.grid_forget()
         self.frameImpostazioni.grid_forget()
         self.frameMenu.grid_forget()
@@ -368,12 +370,14 @@ class Tombolone(tk.Frame):
         self.frameMenu.grid()
 
     def Gioca(self):
+        # Porta in primo piano la schermata del gioco
         self.estrai()
         self.frameMenu.grid_forget()
         self.frameImpostazioni.grid_forget()
         self.frameGioco.grid()
 
     def nextTurn(self):
+        # Cambia giocatore e cambia il turno
         curPlyr = self.currentPlayer + 1
         if curPlyr <= self.nGiocatori.get():
             self.currentPlayer = self.currentPlayer + 1
@@ -388,6 +392,7 @@ class Tombolone(tk.Frame):
             self.nextTurn()
 
     def Impostazioni(self):
+        # Porta in primo piano la schermata delle Impostazioni
         self.frameMenu.grid_forget()
         self.frameGioco.grid_forget()
         self.frameImpostazioni.grid()
@@ -396,12 +401,15 @@ class Tombolone(tk.Frame):
         self.oldTema=self.tema.get()
 
     def indietro(self):
+        # Se non si salvano le impostazioni selezionate 
+        # non le aggiorna nelle variabili globali
         self.nGiocatori.set(self.oldNGiocatori)
         self.nSchedine.set(self.oldNSchedine)
         self.tema.set(self.oldTema)
         self.Menu()
 
     def click(self, nScheda, nCella):
+        # Segna i numeri cliccati nelle schedine
         if self.arrSchedine[nScheda][nCella].cget("bg") == self.gioco_widget_bg_color:
             self.arrSchedine[nScheda][nCella].configure(bg=self.gioco_sfondo_bg_color)
             self.arrSchedine[nScheda][nCella].configure(fg=self.gioco_widget_fg_color)
