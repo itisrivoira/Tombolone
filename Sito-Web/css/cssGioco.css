@@ -1,0 +1,62 @@
+body {
+    margin: auto;
+}
+
+#pagina {
+    background-color: green;
+    width: 100%;
+}
+
+#tabellone {
+    background-color: orange;
+    width: 180px;
+    height: 190px;
+    text-align: center;
+}
+
+.cella {
+    width: 9%;
+    height: 30%;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    display: inline-block;
+}
+
+#schedina {
+    width: 18em;
+    height: 9em;
+    background-color: orange;
+    text-align: center;
+    margin: auto;
+}
+
+.coperchio {
+    width: 9%;
+    height: 30%;
+    background-color: grey;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    opacity: 0.80;
+}
+
+.cellaSchedina {
+    width: 9%;
+    height: 30%;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+}
+
+#bottonePremi {
+    display: none;
+    width: 10%;
+    height: 5%;
+    background-color: orange;
+    margin-left: 41.5%;
+}
+
+#pulsanteEstrai {
+    background-color: orange;
+}
