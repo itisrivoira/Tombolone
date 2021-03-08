@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tombolone</title>
+    <link rel="stylesheet" href="../css/cssGioco.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script>
+        function apriGioco() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("tombolone").style.display = "block";
+        }
+
+        function chiudiGioco() {
+            document.getElementById("tombolone").style.display = "none";
+            document.getElementById("bottonePremi").style.display = "none";
+            document.getElementById("mainMenu").style.display = "block";
+        }
+
+        function apriMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("menuImpostazioni").style.display = "block";
+        }
+
+        function chiudiMenu() {
+            document.getElementById("mainMenu").style.display = "block";
+            document.getElementById("menuImpostazioni").style.display = "none";
+        }
+
+        function mostraTitoliHamburger() {
+            var x = document.getElementById("menuTendina");
+            if (x.style.display == "none") {
+                x.style.display = "inline-block";
+                flagHamburger = true;
+            } else {
+                x.style.display = "none";
+                flagHamburger = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="pagina">
+        <!--<div class="row" style="padding-top:0.5em;">
+            Logo dimostrativo come anche il titolo superiore-->
+
+        <!--In questa row inserirò tutto il corpo della pagina, come immagini inerenti al gioco e informazioni-->
+
+        <!--INIZIO WEBAPP-->
+        <!--MENU GIOCO-->
+        <div id="mainMenu" class="menuGioco">
+            <h1 style="margin-bottom: 20px;"><b>TOMBOLONE</b></h1>
+            </br>
+            <button type="button" class="menuButtons" onclick="apriGioco()">GIOCA</button></br>
+            <button type="button" class="menuButtons" onclick="apriMenu()">IMPOSTAZIONI</button></br>
+            <form action="../index.html">
+                <button type="submit" class="menuButtons">ESCI</button>
+            </form>
+        </div>
+        <!--MENU IMPOSTAZIONI-->
+        <div id="menuImpostazioni">
+            <form action="" class="myform">
+                <h1><b>Impostazioni gioco</b></h1>
+                <div class="impostazioni">
+                    <label for="giocatori">Numero giocatori:</label>
+                    <select name="Ngiocatori">
+                                        <option value="2" selected="selected">2</option>
+                                        <option value="3" selected="selected">3</option>
+                                        <option value="4" selected="selected">4</option>
+                                        </select>
+
+                    <br><br>
+
+                    <label for="schedine">Numero schedine:</label>
+                    <select name="Nschedine">
+                                        <option value="1" selected="selected">1</option>
+                                        <option value="2" selected="selected">2</option>
+                                        <option value="3" selected="selected">3</option>
+                                        <option value="4" selected="selected">4</option>
+                                        <option value="4" selected="selected">5</option>
+                                        <option value="4" selected="selected">6</option>
+                                        </select>
+
+                    <br><br>
+
+                    <label for="tema">Scegli tema:</label>
+                    <input type="radio" id="scuro" name="tema" value="scuro">
+                    <label for="scuro">Scuro</label>
+                    <input type="radio" id="chiaro" name="tema" value="Chiaro">
+                    <label for="chiaro">Chiaro</label><br>
+                    <br><br>
+
+                    <label for="volume">Volume</label>
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                    </div>
+                </div>
+                </br>
+                <button type="button" class="menuButtons2" onclick="chiudiMenu()">TORNA AL MENU</button>
+            </form>
+        </div>
+
+        <!--FINE WEBAPP-->
+        <div id="tombolone" class="container">
+            <h1>
+                <center><b>IL TOMBOLONE<b></center></h1>
+            <div>Numero Estratto:</div>
+            <div id="numeroEstratto">...</div>
+            <input type="button" value="ESTRAI" id="pulsanteEstrai" onclick="estraiNumero()"></input><br>
+            <button type="button" style="background-color: orange" onclick="chiudiGioco()">TORNA AL MENU</button>
+            <div id="contenitoreSchedine">
+                <div id="schedina">
+                    <div class="rigaSchedina">
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                    </div>
+                    <div class="rigaSchedina">
+                        <div class="cellaSchedina">2</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">23</div>
+                        <div class="cellaSchedina">35</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">56</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">88</div>
+                    </div>
+                    <div class="rigaSchedina">
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                    </div>
+                    <div class="rigaSchedina">
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">11</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">37</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">51</div>
+                        <div class="cellaSchedina">67</div>
+                        <div class="cellaSchedina">71</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                    </div>
+                    <div class="rigaSchedina">
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                        <div class="coperchio">&nbsp</div>
+                    </div>
+                    <div class="rigaSchedina">
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">29</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">42</div>
+                        <div class="cellaSchedina">50</div>
+                        <div class="cellaSchedina">&nbsp</div>
+                        <div class="cellaSchedina">70</div>
+                        <div class="cellaSchedina">83</div>
+                    </div>
+                    <div class="rigaSchedina">
+                    </div>
+                    <div class="rigaSchedina">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="button" id="bottonePremi" value="RISCATTA"></input>
+    <script src="../js/js.js"></script>
+</body>
+
+</html>
