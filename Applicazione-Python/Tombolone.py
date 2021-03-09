@@ -578,7 +578,7 @@ class Tombolone(tk.Frame):
             sec = random.randint(3000, 7000)
         elif self.nSchedine.get() == 5 or self.nSchedine.get() == 6:
             sec = random.randint(4000, 10000)
-        print("Le CPU aspetteranno ",sec," prima di effettuare la verifica del numero ",randN)
+        #print("Le CPU aspetteranno ",sec," prima di effettuare la verifica del numero ",randN)
         self.after(sec, lambda:self.selectCelleCpu(randN))
 
     def selectCelleCpu(self, nEstratto):
