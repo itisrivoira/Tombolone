@@ -2,29 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
-#thread_pool_executor = futures.ThreadPoolExecutor(max_workers=1)
-
-"""
-TODO
- ||
- \/    """
-#TODO
-# far visualizzare il ni8ckname nel titolo del gioco          #########################################################
-# compattare/pulire il codice                                 #########################################################
-# giocatori con cpu,
-# poter visualizzare le schedine dei bot con le freccette,
-# provare pygame,                                             #########################################################
-# migliorare grafica generale,                                #########################################################
-# generare e settare le schedine con il nSchedine
-# controlli a fine partita per verificare validita schedine                                          #
-# evitare ridonzdanze nel random delle schedine
-# fixare i controlli per il tabellone
-# dire il numero a voce quando viene estratto                 #########################################################
-# fare controllo per ambo, terna, quaterna, cinquina, decina, tombola e tombolino                    #
-# usare sleep per aspettare a selezionare celle delle cpu,    #########################################################
-# usare anche per la difficolta(by quel gayo di klody)        #########################################################
-#
-
 class Giocatore():
     def __init__(self, nome, schedine):
         self._nome=nome
@@ -293,9 +270,6 @@ class Tombolone(tk.Frame):
 
         btnTornaAlMenu=tk.Button(self.frameGioco, text="<--", bg=self.gioco_sfondo_bg_color, fg=self.gioco_titolo_fg_color, highlightthickness=0, font=("Helvetica", 30), bd=0, command=lambda:self.Menu(), relief="solid")
         btnTornaAlMenu.grid(row=1, column=0)
-        #self.update()
-        #print("Altezza",btnTornaAlMenu.winfo_height())
-        #print("larghezza", btnTornaAlMenu.winfo_width())
         fakebtnTornaAlMenu = tk.Button(self.frameGioco, bg=self.gioco_sfondo_bg_color, highlightthickness=0, state=tk.DISABLED, relief=tk.FLAT, height=4, width=17).grid(row=1, column=9)
 
         #todo DA FIXARE PER MOSTRARE IL NOME
@@ -356,11 +330,7 @@ class Tombolone(tk.Frame):
             tupla1 = (lbl, i+1)
             self.arrTabellone.append(lbl)
         frameTabellone.grid(row=0, rowspan=4, column=6, columnspan=3, sticky="e")
-        #self.update()
-        #print("larghezza: ", frameTabellone.winfo_width())
-        #print("altezza: ", frameTabellone.winfo_height())
         faketabellone=tk.Frame(self.frameGioco, bg=self.gioco_sfondo_bg_color, height=191, width=182).grid(row=0, rowspan=4, column=1, columnspan=3)
-        #frameTabellone.grid(row=0, column=0, sticky="ne", padx=50, pady=20)
 
         tk.Label(self.frameGioco, text="", bg=self.gioco_sfondo_bg_color).grid(row=6, column=0)
 
@@ -556,10 +526,9 @@ class Tombolone(tk.Frame):
             else:
                 giocatore = Giocatore("CPU " + str(t), arrSchedine)
             self.giocatoriCpu.append(giocatore)
-
-        # STAMPO COSSEH
-
-        # giocatori
+        
+        # DEBUG
+        """# giocatori
         for t in range(len(self.giocatoriCpu)):
             print("Nome Giocatore: " + self.giocatoriCpu[t].getNome())
             # schedina
@@ -572,7 +541,7 @@ class Tombolone(tk.Frame):
                     print("\t\t\tCelle: ", end="")
                     for z in range(len(self.giocatoriCpu[t].getSchedine()[i][y])):
                         print("\t", self.giocatoriCpu[t].getSchedine()[i][y][z], end="")
-                    print()
+                    print()"""
 
     def setCommandCelle(self, nScheda, nRiga, nCella):
         self.arrSchedine[nScheda][nRiga][nCella].configure(command=lambda: self.click(0, nScheda, nRiga, nCella, "plyr"))
@@ -620,8 +589,6 @@ class Tombolone(tk.Frame):
         #giocatori
         for i in range(len(self.giocatoriCpu)):
             if i > 0:
-                #sec = random.randint(1000, 5000)
-                #time.sleep(sec)
                 #schedine
                 for l in range(len(self.giocatoriCpu[i].getSchedine())):
                     #righe
@@ -703,24 +670,18 @@ class Tombolone(tk.Frame):
             self.btnNextPlayer.configure(state=tk.NORMAL)
             self.btnPrevPlayer.configure(bg=self.gioco_sfondo_bg_color, relief=tk.FLAT)
             self.btnNextPlayer.configure(bg=self.gioco_label_nestratto_bg_color, relief=tk.RAISED)
-            #self.btnPrevPlayer.grid_forget()
-            #self.btnNextPlayer.grid(row=11, column=4)
 
         elif self.currentPlayer == len(self.giocatoriCpu)-1:
             self.btnPrevPlayer.configure(state=tk.NORMAL)
             self.btnNextPlayer.configure(state=tk.DISABLED)
             self.btnPrevPlayer.configure(bg=self.gioco_label_nestratto_bg_color, relief=tk.RAISED)
             self.btnNextPlayer.configure(bg=self.gioco_sfondo_bg_color, relief=tk.FLAT)
-            #self.btnPrevPlayer.grid(row=11, column=1)
-            #self.btnNextPlayer.grid_forget()
 
         else:
             self.btnPrevPlayer.configure(state=tk.NORMAL)
             self.btnNextPlayer.configure(state=tk.NORMAL)
             self.btnPrevPlayer.configure(bg=self.gioco_label_nestratto_bg_color, relief=tk.RAISED)
             self.btnNextPlayer.configure(bg=self.gioco_label_nestratto_bg_color, relief=tk.RAISED)
-            #self.btnPrevPlayer.grid(row=11, column=1)
-            #self.btnNextPlayer.grid(row=11, column=4)
 
         """DEBUG    print("CurrentPlayer: ", self.currentPlayer)
         print("nGiocatori: ", self.nGiocatori.get())
