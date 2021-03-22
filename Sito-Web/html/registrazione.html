@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/registrazione.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Il Tombolone</title>
+</head>
+
+<body id="sfondo" ">
+    <!--Utilizzo il bootstrap per permettere il ridimensionamento della finestra sui diversi dispositivi, anche se non li ho definiti all'interno delle classi perchè ancora una bozza-->
+    <div class="container-fluid " id="contenuto ">
+        <!--Inizio corpo del sito relativo al form di registrazione-->
+        <div class="row ">
+            <div>
+                <a/ href="../index.html "><img id="logoSito " src="../img/logo.png " style=" z-index: 1; position: absolute; margin-left: 45%; margin-top: 4%; width: 10%; height: auto; "></a>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col ">
+                <form class="myform " name="invio ">
+                    <h1>Crea account</h1>
+                    <div class="formRegistrazione row ">
+                        <div class="col-6 ">
+                            <label for="indirizzoMail "><b>Indirizzo email</b></label>
+                            <input id="indirizzoMail " class="caselleInserimento " name="indirizzoMail " type="text " size="20 " maxlength="200 " placeholder="Email "/>
+                            <br>
+                            <label for="nome "><b>Nome</b></label>
+                            <input id="nome " class="caselleInserimento " name="nome " type="text " size="20 " maxlength="200 " placeholder="Nome "/>
+                            <br>
+                            <label for="cognome "><b>Cognome</b></label>
+                            <input id="cognome " class="caselleInserimento " name="cognome " type="text " size="20 " maxlength="200 " placeholder="Cognome "/>
+                            <br>
+                            <label for="dataNascita "><b>Data di nascita</b></label>
+                            <input id="dataNascita " class="caselleInserimento " name="dataNascita " type="date " placeholder="Data di nascita "placeholder="Data di nascita ">
+                        </div>
+                        <div class="col-6 ">
+                            <label for="nazionalita "><b>Nazionalità</b></label>
+                            <input id="nazionalita " class="caselleInserimento " name="nazionalita " type="text " size="20 " maxlength="200 " placeholder="Nazionalità "/>
+                            <br>
+                            <label for="username "><b>Username</b></label>
+                            <input id="username " class="caselleInserimento " name="username " type="text " size="20 " maxlength="200 " placeholder="Username "/>
+                            <br>
+                            <label for="password "><b>Password</b></label>
+                            <input id="password "class="caselleInserimento " name="password " type="password " size="20 " maxlength="200 "placeholder="Password " />
+                            <br>
+                            <label for="confermaPassword "><b>Conferma password</b></label>
+                            <input id="confermaPassword "class="caselleInserimento " name="confermaPassword " type="password " size="20 " maxlength="200 " placeholder="Conferma "/>
+                        </div>
+                        <input class="dd " style="background-color: rgb(100, 148, 237, 1); border:solid rgb(80, 119, 190); border-radius: 3px; text-align: center; " name="invio " type="submit " value="Continua " onclick="controllaRegistrazione() ">
+                        <a id="linkRegistrazione " href="accedi.html ">Hai già un account? Accedi</a>
+                        
+                    </div>
+                </form>  
+                <br>    
+                <br>
+                <br>      
+            </div>
+        </div>
+    </div>
+
+    <!--Fine del corpo del sito relativo al form di registrazione-->
+    <script src="../js/registazione.js "></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+</body>
+
+
+</html>
