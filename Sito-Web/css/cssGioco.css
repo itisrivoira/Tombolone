@@ -1,0 +1,140 @@
+body {
+    margin: auto;
+}
+
+#titoloGioco {
+    width: 30%;
+    margin-left: 39%;
+}
+
+#tombolone {
+    margin-top: 0.5%;
+    width: 100%;
+    background-color: green;
+    border: solid 10px;
+    border-color: grey;
+    display: none;
+    height: 80em;
+}
+
+#pagina {
+    background-color: green;
+    width: 100%;
+}
+
+#tabellone {
+    background-color: orange;
+    width: 180px;
+    height: 190px;
+    text-align: center;
+}
+
+.cella {
+    width: 9%;
+    height: 30%;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    display: inline-block;
+}
+
+#schedina {
+    width: 18em;
+    height: 9em;
+    background-color: orange;
+    text-align: center;
+    margin: auto;
+}
+
+.coperchio {
+    width: 9%;
+    height: 30%;
+    background-color: grey;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    opacity: 0.80;
+}
+
+.cellaSchedina {
+    width: 9%;
+    height: 30%;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+}
+
+#bottonePremi {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: none;
+    width: 10%;
+    height: 5%;
+    margin-left: 45%;
+    background-color: orange;
+}
+
+#pulsanteEstrai {
+    background-color: orange;
+}
+
+.coperchio {
+    width: 9%;
+    height: 20%;
+    background-color: grey;
+    margin-left: 4px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    opacity: 0.80;
+}
+
+#tabellone {
+    background-color: orange;
+    width: 20%;
+    float: right;
+    height: 19em;
+}
+
+.cellaTabellone {
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    width: 7%;
+    margin-right: 2%;
+    margin-left: 1%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.cellaSchedina {
+    width: 9%;
+    height: 20%;
+    margin-left: 4px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+}
+
+.schedina {
+    width: 18em;
+    height: 10.5em;
+    background-color: orange;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1em;
+}
+
+.rigaSchedina {
+    margin-bottom: -60px;
+}
+
+#numeroEstratto {
+    display: inline-block;
+    margin-left: 1em;
+    color: white;
+}
+
+#pulsanteEstrai {
+    margin-left: 8%;
+}
