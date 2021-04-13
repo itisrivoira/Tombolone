@@ -15,11 +15,14 @@ sudo apt-get install python3.8
 a questo punto autenticarsi inserendo le proprie credenzziali del PC, successivamente
 bisogna installare la libreria tkinter mediante questo comando:
 sudo apt-get install python3-tk
+installare anche il comando per poter far uso della pygame per poter avere un'interfaccia audio migliore
+tramite il comando:
+sudo apt-get install python3-pygame
 
 Fatto questo per avviare il gioco vero e proprio non si dovrà fare doppio click sul file 
 perchè verrà visualizzato il codice, ma aprire il terminale nella cartella dove si trova il
 file e avviare il programma con il comando:
-python3 Tombolone.py.
+python3 Tombolone.py
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -40,8 +43,11 @@ sudo apt-get install python3.8
 at this point, log in by entering your PC credentials, subsequently
 you need to install the tkinter library using this command:
 sudo apt-get install python3-tk
+also install the command to be able to make use of the pygame in order to have a better audio interface
+using the command:
+sudo apt-get install python3-pygame
 
 Once this is done, you will not have to double click on the file to start the actual game
 because the code will be displayed, but open the terminal in the folder where it is located
 file and start the program with the command:
-python3 Tombolone.py.
+python3 Tombolone.py
