@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/cssGioco.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Il Tombolone</title>
+</head>
+
+<body class="container-fluid">
+    <div class="row">
+        <!--Utilizzo il bootstrap per permettere il ridimensionamento della finestra sui diversi dispositivi, anche se non li ho definiti all'interno delle classi perchè ancora una bozza-->
+        <!--INIZIO WEBAPP-->
+        <div id="blockmenu" style="display: inline-block;margin-top:13em" class="col-12">
+            <!--MENU GIOCO-->
+            <div id="mainMenu" class="menuGioco">
+                <img src="../img/logo.png" id="logoCentrale">
+                </br>
+                <div id="spaziaturaMenu">
+                    <button type="button" class="menuButtons pulsanteMenu" onclick="apriPrePartita()">GIOCA</button></br>
+                    <button type="button" class="menuButtons pulsanteMenu" onclick="apriMenu()">IMPOSTAZIONI</button></br>
+                    <form action="http://127.0.0.1:3000/">
+                        <button type="submit" class="menuButtons pulsanteMenu">ESCI</button>
+                    </form>
+                </div>
+            </div>
+            <!--MENU IMPOSTAZIONI-->
+            <center>
+                <div id="menuImpostazioni" class="col-6 ">
+                    <form action="" class="myform">
+                        <h1><b>Impostazioni gioco</b></h1>
+                        <div class="impostazioni">
+
+
+                            <label for="tema">Scegli tema:</label>
+                            <input type="radio" id="scuro" name="tema" value="scuro">
+                            <label for="scuro">Scuro</label>
+                            <input type="radio" id="chiaro" name="tema" value="Chiaro">
+                            <label for="chiaro">Chiaro</label><br>
+                            <br><br>
+
+                            <label for="volume">Volume</label>
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                            </div>
+                        </div>
+                        </br>
+                        <button type="button" class="menuButtons2" onclick="chiudiMenuESalva()" onclick="">SALVA</button><br>
+                        <button type="button" class="menuButtons2" onclick="chiudiMenu()" onclick="">ESCI SENZA SALVARE</button>
+                    </form>
+                </div>
+            </center>
+            <center>
+                <div id="menuPrePartita">
+                    <form action="" class="myform">
+                        <h1><b>Pre-partita</b></h1>
+                        <div class="impostazioni">
+                            <label for="giocatori">Nickname:</label>
+                            <input type="text" id="username" placeholder="Giocatore 1"><br><br>
+                            <label for="giocatori">Numero giocatori:</label>
+                            <select id="Ngiocatori">
+                                        <option value="2" selected="selected">2</option>
+                                        <option value="3" selected="selected">3</option>
+                                        <option value="4" selected="selected">4</option>
+                                        <option value="5" selected="selected">5</option>
+                                        <option value="6" selected="selected">6</option>
+                                        <option value="7" selected="selected">7</option>
+                                        <option value="8" selected="selected">8</option>
+                                        </select>
+
+                            <br><br>
+
+                            <label for="schedine">Numero schedine:</label>
+                            <select id="Nschedine">
+                                        <option value="1" selected="selected">1</option>
+                                        <option value="2" selected="selected">2</option>
+                                        <option value="3" selected="selected">3</option>
+                                        <option value="4" selected="selected">4</option>
+                                        <option value="5" selected="selected">5</option>
+                                        <option value="6" selected="selected">6</option>
+                                        </select>
+
+                            <br><br>
+
+
+                        </div>
+                        </br>
+                        <button type="button" class="menuButtons2" onclick="apriGioco()" onclick="">INIZIA PARTITA</button><br>
+                        <button type="button" class="menuButtons2" onclick="chiudiPrePartita()" onclick="">TORNA AL MENU'</button>
+                    </form>
+                </div>
+            </center>
+
+        </div>
+        <!--FINE WEBAPP-->
+    </div>
+    <div id="tombolone">
+        <div class="row-12">
+            <button type="button" onclick="chiudiGioco()" id="tornaMenu">TORNA AL MENU</button>
+
+            <div class="row">
+
+
+                <br>
+                <div class="col-3 mt-3">
+                    <div class="col-12" id="contenitoreTabellone">
+                        <div id="tabellone" class="col">
+                        </div>
+                        <div id="numeroEstratto" class="col-12">...</div><br>
+                        <div id="pulsanteEstrai" class="col-4 text-center mx-auto justify-content-center align-items-center">ESTRAI</div>
+
+                    </div>
+                    <div class="col-2" style="margin-right: 2vw; display: inline-block;"></div>
+                    <div id="sezionePronto" class=" col-8">
+                        <div id="nGiocatoriPronti">
+                            <center>Giocatori pronti:0/8</center>
+                        </div>
+                        <center><button id="pulsantePronto" onclick="controllaNumeriCPU(),terminaTurno()">PRONTO</button></center>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+
+
+                <div id="tavoloSchedine" class="col-5 mt-3 ">
+                    <div id="0_0" class="contenitoreSchedine col-6 ">
+                    </div>
+                    <div id="contenitore_0_1" class="contenitoreSchedineDestra col-6">
+                    </div>
+
+                </div>
+                <div id="log" class="col-12">
+                    Partita iniziata:<br>
+                </div>
+                <div id="schedaGiocatore" class="col-3 mt-3">
+                    <div class="freccia" id="frecciaIndietro" onclick="cambiaGiocatore(-1)" style="display: none;">
+                        <--</div>
+                            <div id="usernameSchedaGiocatore">Giocatore 1</div>
+                            <div class="freccia" id="frecciaAvanti" onclick="cambiaGiocatore(1)">--></div>
+                            <div id="contenitorePremi">
+                                <br>
+                                <div style="display: inline-block; width: 40%; margin-left: 5%;">
+                                    <div class="premioSinistra" id="ambo">AMBO</div>
+                                    <div class="premioSinistra" id="terna">TERNA</div>
+                                </div>
+                                <div style="width: 40%;margin-right: 5%;float: right;">
+                                    <div class="premioDestra" style="opacity: 1;" id="quaterna">QUATERNA</div>
+                                    <div class="premioDestra" id="cinquina">CINQUINA</div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div id="cerchioRiscatta" class="col-4">OTTIENI</div>
+                                <div class="col-4"></div>
+                            </div>
+                            <br>
+                            <br>
+                            <table id="classificaTempoReale">
+                                <tr>
+                                    <th>POSIZIONE</th>
+                                    <th>NOME</th>
+                                    <th>PUNTI</th>
+                                </tr>
+                            </table>
+                    </div>
+                    <input type="button" id="bottonePremi" value="RISCATTA"></input>
+                    <div id="finePartita">
+                        <div id="esito"></div>
+                        <div id="stringaVincitore"></div>
+                        <center>
+                            <table id="tabellaRisulatatiFinali" class="container-fluid">
+                                <tr>
+                                    <th>POSIZIONE</th>
+                                    <th>NOME</th>
+                                    <th>PUNTI</th>
+                                </tr>
+                            </table>
+                        </center>
+                        <center><button id="buttonTornaMenu" onclick="chiudiGioco()">TORNA AL MENU</button></center>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+    <script src="../js/js.js"></script>
+</body>
+<!-- Footer -->
+<!-- Footer -->
+
+
+</html>
