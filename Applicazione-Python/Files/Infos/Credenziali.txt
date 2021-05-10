@@ -1,0 +1,4 @@
+Nome=Luigi,Nickname=LuigiGG,Password=LL,Crediti=15
+Nome=Mario,Nickname=Rossi,Password=MR,Crediti=5
+Nome=Marco,Nickname=GUEST,Password=MG,Crediti=30
+Nome=Pierangelo,Nickname=Pier,Password=PP,Crediti=100
